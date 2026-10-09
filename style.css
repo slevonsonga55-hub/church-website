@@ -1,0 +1,972 @@
+/* ==========================================================================
+   1. GLOBAL RESET & BASE STYLES
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVIGATION BAR
+   ========================================================================== */
+header {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%; /* Responsive horizontal padding */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-logo {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1e3a8a;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #4b5563;
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.2s ease;
+}
+
+nav a:hover {
+    color: #2563eb;
+}
+
+/* Active Navigation Link */
+nav a.active {
+    color: #2563eb;
+    border-bottom: 2px solid #2563eb;
+    padding-bottom: 4px;
+}
+
+/* ==========================================================================
+   3. HERO & MAIN CONTENT STYLING
+   ========================================================================== */
+main {
+    text-align: center;
+    padding-top: 110px; /* Space below fixed header */
+    padding-bottom: 60px;
+    flex: 1; /* Pushes footer down */
+}
+
+.main-graphic-container {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.main-graphic {
+    max-width: 240px;
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+h1 {
+    color: #1e3a8a;
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+main > p {
+    color: #4b5563;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+    background-color: #1d4ed8;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* ==========================================================================
+   4. WEEKLY PROGRAM CARDS SECTION (HOMEPAGE / EVENTS)
+   ========================================================================== */
+.programs-section {
+    margin-top: 60px;
+    padding: 0 20px;
+}
+
+.programs-section h2 {
+    color: #1e3a8a;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    width: 100%;
+    max-width: 320px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+    border-top: 4px solid #2563eb;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+    color: #1e3a8a;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.card .time {
+    color: #2563eb;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.card .location {
+    color: #1e3a8a;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #4b5563;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   5. ABOUT SECTION STYLING
+   ========================================================================== */
+.about-section {
+    margin: 50px auto 0;
+    padding: 40px 24px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    max-width: 1100px;
+    width: 92%;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.about-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    flex-wrap: wrap; 
+}
+
+.about-text {
+    flex: 1 1 300px;
+}
+
+.about-text h2 {
+    color: #1e3a8a;
+    font-size: 28px;
+    margin-bottom: 16px;
+}
+
+.about-text p {
+    color: #4b5563;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 14px;
+}
+
+.pillars-container {
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.pillar-box {
+    background-color: #f0f4f8;
+    padding: 16px 20px;
+    border-left: 5px solid #2563eb;
+    border-radius: 8px;
+}
+
+.pillar-box h3 {
+    color: #1e3a8a;
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.pillar-box p {
+    color: #4b5563;
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* ==========================================================================
+   6. PAGE BANNERS
+   ========================================================================== */
+.page-banner {
+    background-color: #1e3a8a;
+    color: #ffffff;
+    padding: 40px 20px;
+    margin-bottom: 40px;
+}
+
+.page-banner h1 {
+    color: #ffffff;
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.page-banner p {
+    color: #93c5fd;
+    font-size: 16px;
+}
+
+/* ==========================================================================
+   7. GIVING SECTION (Lipa Na M-PESA Card)
+   ========================================================================== */
+.giving-container {
+    padding: 10px 20px 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.giving-card {
+    background-color: #ffffff;
+    padding: 35px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    border-top: 5px solid #16a34a; /* M-PESA Green Accent */
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+}
+
+.giving-card-title {
+    color: #16a34a;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.paybill-details {
+    background-color: #f0fdf4;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #bbf7d0;
+}
+
+.paybill-row {
+    margin: 12px 0;
+    font-size: 16px;
+    color: #1f2937;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.paybill-badge {
+    background-color: #16a34a;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.account-name {
+    color: #1e3a8a;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.giving-footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #6b7280;
+    font-style: italic;
+}
+
+/* ==========================================================================
+   8. CONNECT & CONTACT FORM STYLING
+   ========================================================================== */
+.form-section {
+    display: flex;
+    justify-content: center;
+    padding: 0 20px 40px;
+}
+
+.contact-form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 520px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    text-align: left;
+}
+
+.contact-form h2 {
+    color: #1e3a8a;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 6px;
+    color: #374151;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.contact-form button {
+    width: 100%;
+}
+
+/* ==========================================================================
+   9. FOOTER STYLING
+   ========================================================================== */
+footer {
+    background-color: #1e3a8a;
+    color: #ffffff;
+    text-align: center;
+    padding: 25px 20px;
+}
+
+footer p {
+    color: #e2e8f0;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.footer-links a,
+.social-links a {
+    color: #93c5fd;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 0 8px;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover,
+.social-links a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.social-links {
+    margin-top: 10px;
+}
+
+/* ==========================================================================
+   10. MEDIA QUERIES FOR MOBILE RESPONSIVENESS
+   ========================================================================== */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px;
+        position: relative; /* Un-fix top position if menu wraps on small screens */
+    }
+
+    main {
+        padding-top: 30px; /* Reduces top gap on mobile */
+    }
+
+    nav ul {
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .about-section {
+        padding: 24px 16px;
+    }
+
+    .about-content {
+        gap: 24px;
+    }
+
+    .paybill-row {
+        flex-direction: column;
+        gap: 6px;
+    }
+}
+/* Executive Leadership Section Styling */
+.leadership-section {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f9fafb;
+}
+
+.leadership-section h2 {
+    font-size: 2rem;
+    color: #1e3a8a; /* WESO Blue */
+    margin-bottom: 8px;
+}
+
+.section-subtitle {
+    color: #6b7280;
+    margin-bottom: 35px;
+    font-size: 1rem;
+}
+
+/* 3-Column Responsive Grid */
+.leaders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Individual Leader Card */
+.leader-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 25px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e7eb;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.leader-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+}
+
+/* Round Profile Image */
+.leader-photo {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #16a34a; /* WESO Green Accent */
+}
+
+.leader-card h3 {
+    margin: 8px 0 4px 0;
+    font-size: 1.25rem;
+    color: #1e3a8a;
+}
+
+.leader-role {
+    display: inline-block;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #16a34a;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.leader-bio {
+    font-size: 0.88rem;
+    color: #4b5563;
+    line-height: 1.5;
+}
+/* ==========================================================================
+   EXECUTIVE LEADERSHIP SECTION (ABOUT.HTML)
+   ========================================================================== */
+
+:root {
+    --weso-navy: #1a4b8e;       /* Primary Deep Blue */
+    --weso-sky: #00a8e8;        /* Sky Blue Accent */
+    --weso-gold: #d99b26;       /* Cross Gold Accent */
+    --weso-green: #16a34a;      /* Action/Success Green for Giving & Badges */
+    --weso-dark-green: #15803d; /* Hover State Green */
+    --weso-card-bg: #ffffff;    /* Card White */
+    --weso-bg-light: #f4f7fa;   /* Neutral Section Background */
+    --weso-text-dark: #333333;  /* Main Body Text */
+}
+
+.leadership-section {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: var(--weso-bg-light);
+}
+
+.leadership-section h2 {
+    font-size: 2rem;
+    color: var(--weso-navy);
+    margin-bottom: 8px;
+}
+
+.section-subtitle {
+    color: #64748b;
+    margin-bottom: 35px;
+    font-size: 1rem;
+}
+
+.leaders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.leader-card {
+    background-color: var(--weso-card-bg);
+    border-radius: 12px;
+    padding: 25px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.leader-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 22px rgba(26, 75, 142, 0.15);
+    border-color: var(--weso-sky);
+}
+
+.leader-photo {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid var(--weso-navy);
+}
+
+.leader-card h3 {
+    margin: 8px 0 4px 0;
+    font-size: 1.25rem;
+    color: var(--weso-navy);
+}
+
+.leader-role {
+    display: inline-block;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--weso-sky);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.leader-bio {
+    font-size: 0.88rem;
+    color: var(--weso-text-dark);
+    line-height: 1.5;
+}
+/* Leader Card Photo & Placeholder Styles */
+.leader-photo,
+.leader-photo-placeholder {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 12px auto;
+    border: 3px solid var(--weso-navy, #1a4b8e);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.leader-photo {
+    object-fit: cover;
+    object-position: center top;
+}
+
+.leader-photo-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e2e8f0;
+    color: #94a3b8;
+}
+
+.leader-photo-placeholder svg {
+    width: 60px;
+    height: 60px;
+}
+/* Leader Card Text & Role Styling */
+.leader-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--weso-navy, #1a4b8e);
+    margin: 8px 0 4px 0;
+    display: block;
+}
+
+.leader-role {
+    display: block; /* Ensures the role sits on its own line below the name */
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--weso-gold, #d99b26); /* Stands out in brand gold */
+    margin-top: 2px;
+}
+/* Optimized Grid and Card Dimensions for Rich Descriptions */
+.leaders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    padding: 20px 0;
+}
+
+.leader-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 28px 22px;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.leader-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 24px rgba(26, 75, 142, 0.14);
+}
+
+.leader-desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #475569;
+    text-align: justify; /* Keeps text alignment clean across both margins */
+    hyphens: auto;
+    margin-top: 8px;
+}
+/* Hamburger Icon Base Styles (Hidden on Desktop) */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 4px;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--weso-navy, #1a4b8e);
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Mobile Media Query (Screens smaller than 768px) */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex; /* Show hamburger button on mobile */
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%; /* Hide menu off-screen by default */
+        top: 60px;
+        flex-direction: column;
+        background-color: #ffffff;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s ease;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+    }
+
+    /* Active Mobile Menu State */
+    .nav-menu.active {
+        left: 0; /* Slide in from left */
+    }
+
+    /* Transform Hamburger Lines into an 'X' when Open */
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+/* Navigation Bar Layout */
+.main-header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between; /* Keeps Logo on Left, Menu/Hamburger on Right */
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #1a4b8e;
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #334155;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.nav-menu a:hover {
+    color: #d99b26;
+}
+
+/* Hamburger Icon (Desktop: Hidden) */
+.hamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 4px;
+    z-index: 1001;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #1a4b8e;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Mobile Screens (768px and below) */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex; /* Appears on far right */
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%; /* Hidden offscreen to the left */
+        top: 60px;
+        flex-direction: column;
+        background-color: #ffffff;
+        width: 100%;
+        text-align: center;
+        padding: 30px 0;
+        transition: left 0.3s ease-in-out;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Active Mobile Drawer State */
+    .nav-menu.active {
+        left: 0; /* Slides smoothly into view */
+    }
+
+    /* Transform 3 Lines into an 'X' Close Button */
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+/* =========================================================
+   HEADER & MOBILE NAVIGATION OVERRIDE
+   ========================================================= */
+header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding: 10px 15px !important; /* Fixed padding so it fills full screen width */
+    background-color: #ffffff !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+    z-index: 1000 !important;
+}
+
+/* Left-aligned Logo Block */
+header .logo-container {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin: 0 !important;
+}
+
+header .header-logo {
+    height: 35px !important;
+    width: auto !important;
+}
+
+header .logo-text {
+    font-size: 1.1rem !important;
+    font-weight: bold !important;
+    color: #0d3b66 !important;
+}
+
+/* Pushed to the ABSOLUTE FAR RIGHT */
+header .menu-toggle {
+    display: block !important;
+    margin-left: auto !important; /* Pushes button to right border */
+    background: transparent !important;
+    border: none !important;
+    font-size: 1.8rem !important;
+    color: #0d3b66 !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+}
+
+/* Mobile Dropdown Menu (Sits directly UNDER the header bar) */
+@media (max-width: 768px) {
+    header nav {
+        display: none;
+        position: absolute !important;
+        top: 100% !important; /* Drops below the header bar */
+        left: 0 !important;
+        width: 100% !important;
+        background-color: #ffffff !important;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
+        z-index: 999 !important;
+    }
+
+    header nav.active {
+        display: block !important;
+    }
+
+    header nav ul {
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 1rem 0 !important;
+        margin: 0 !important;
+        list-style: none !important;
+        text-align: center !important;
+    }
+
+    header nav ul li {
+        padding: 0.6rem 0 !important;
+    }
+
+    header nav ul li a {
+        color: #0d3b66 !important;
+        text-decoration: none !important;
+        font-weight: bold !important;
+    }
+}
+
+/* =========================================================
+   2. FOOTER EMAIL LINK VISIBILITY FIX
+   ========================================================= */
+footer a, 
+.main-footer a,
+.footer-col a {
+    color: #ffffff !important; /* Force crisp white text over dark/blue backgrounds */
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+footer a:hover, 
+.main-footer a:hover {
+    color: #f4d03f !important; /* Elegant gold accent highlight on hover/tap */
+}
