@@ -19,44 +19,66 @@ body {
 /* ==========================================================================
    2. HEADER & NAVIGATION BAR
    ========================================================================== */
-header {
+.main-header {
     background-color: #ffffff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 5%; /* Responsive horizontal padding */
+    padding: 15px 5%;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     z-index: 1000;
 }
 
-.logo-container {
+.nav-container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 15px;
+    width: 100%;
 }
 
-.header-logo {
-    height: 45px;
-    width: auto;
-    object-fit: contain;
-}
-
-.logo-text {
+.logo {
     font-size: 20px;
     font-weight: bold;
     color: #1e3a8a;
+    text-decoration: none;
+}
+/* Logo container styling */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #1f2937;
 }
 
-nav ul {
+/* Logo image sizing */
+.logo-img {
+    height: 40px;          /* Adjust height to fit header */
+    width: auto;           /* Maintain natural aspect ratio */
+    object-fit: contain;
+    border-radius: 4px;    /* Optional: slightly rounded corners */
+}
+
+/* Optional: style for text next to logo */
+.logo-text {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.nav-menu {
     list-style: none;
     display: flex;
     gap: 24px;
+    margin: 0;
+    padding: 0;
 }
 
-nav a {
+.nav-menu a {
     text-decoration: none;
     color: #4b5563;
     font-weight: 600;
@@ -64,17 +86,39 @@ nav a {
     transition: color 0.2s ease;
 }
 
-nav a:hover {
+.nav-menu a:hover {
     color: #2563eb;
 }
 
 /* Active Navigation Link */
-nav a.active {
+.nav-menu a.active {
     color: #2563eb;
     border-bottom: 2px solid #2563eb;
     padding-bottom: 4px;
 }
 
+/* Hamburger Toggle Button (Hidden on Desktop) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger .bar {
+    width: 100%;
+    height: 3px;
+    background-color: #1e3a8a;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    display: block;
+}
 /* ==========================================================================
    3. HERO & MAIN CONTENT STYLING
    ========================================================================== */
@@ -443,25 +487,55 @@ footer p {
    10. MEDIA QUERIES FOR MOBILE RESPONSIVENESS
    ========================================================================== */
 @media (max-width: 768px) {
-    header {
+    .main-header {
+        justify-content: space-between;
+        padding: 12px 20px;
+    }
+
+    /* Show the 3-line Hamburger Button on mobile */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Mobile Menu Drawer - Dropdown anchored to Top Right */
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        right: 20px;
+        width: 220px;
+        background-color: #ffffff;
         flex-direction: column;
-        gap: 12px;
-        padding: 15px;
-        position: relative; /* Un-fix top position if menu wraps on small screens */
+        gap: 0;
+        border-radius: 8px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        border: 1px solid #e5e7eb;
+        display: none; /* Hidden until toggled */
+        padding: 10px 0;
+        overflow: hidden;
+    }
+
+    /* Revealed state when toggled via JS */
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu li {
+        width: 100%;
+    }
+
+    .nav-menu a {
+        display: block;
+        padding: 12px 20px;
+        font-size: 15px;
+        width: 100%;
+    }
+
+    .nav-menu a:hover {
+        background-color: #f0f4f8;
     }
 
     main {
-        padding-top: 30px; /* Reduces top gap on mobile */
-    }
-
-    nav ul {
-        gap: 14px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    nav a {
-        font-size: 14px;
+        padding-top: 90px;
     }
 
     h1 {
@@ -480,6 +554,7 @@ footer p {
         flex-direction: column;
         gap: 6px;
     }
+}
 }
 /* Executive Leadership Section Styling */
 .leadership-section {
